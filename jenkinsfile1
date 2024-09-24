@@ -4,7 +4,12 @@ pipeline {
        stage('Build Code') {
            steps {
                sh """
-               echo "Building Artifact"
+               echo "Building Artifact1"
+               """
+           }
+            steps {
+               sh """
+               echo "Building Artifact2"
                """
            }
        }
