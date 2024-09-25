@@ -1,0 +1,20 @@
+pipeline {
+   agent any
+   stages {
+       stage('Build Code') {
+           steps {
+               cd jpetstore
+               rm -rf jpetstore-6
+               git clone https://github.com/mybatis/jpetstore-6.git
+               cd jpetstore-6
+
+           }
+               }
+      stage('Deploy Code') {
+          steps {
+             ./mvnw clean package
+            ./mvnw cargo:run -P tomcat90
+          }
+      }
+   }
+}
